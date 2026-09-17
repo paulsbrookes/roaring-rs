@@ -7,7 +7,7 @@ sync_workspace() {
     checkout="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
     WORKSPACE="${HARD_OSS_WORKSPACE_ROOT:-/var/tmp/hard-oss-workspaces}/${ARTEMIS_REPO_KEY}"
     mkdir -p "$WORKSPACE"
-    rsync -a --delete --exclude '/.git/' --exclude '/target/' --exclude 'artemis_results.json*' \
+    rsync -rlpgoD --checksum --delete --exclude '/.git/' --exclude '/target/' --exclude 'artemis_results.json*' \
         "$checkout/" "$WORKSPACE/"
     export WORKSPACE
     export CARGO_TARGET_DIR="$WORKSPACE/target"
