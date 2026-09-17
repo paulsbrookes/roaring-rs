@@ -1,0 +1,14 @@
+[package]
+name = "artemis-bench"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Artemis reviewer-study timing harness for roaring (pairwise set operations over census1881)"
+
+[dependencies]
+roaring = { path = "../../roaring" }
+zip = { version = "0.6", default-features = false, features = ["deflate"] }
+
+[[bin]]
+name = "artemis-bench"
+path = "src/main.rs"
